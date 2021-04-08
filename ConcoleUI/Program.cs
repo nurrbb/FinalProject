@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using System;
 
 namespace ConcoleUI
@@ -7,10 +8,10 @@ namespace ConcoleUI
     {
         static void Main(string[] args)
         {
-            ProductManager productmanager = new ProductManager(new InMemoryProductDal());
-            foreach (var product in productmanager.GetAll)
+            ProductManager productmanager = new ProductManager(new EfProductDal());
+            foreach (var product in productmanager.GetAll())
             {
-                Console.WriteLine(product.);
+                Console.WriteLine(product.ProductName);
             }
         }
     }
